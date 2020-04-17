@@ -1,0 +1,125 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+
+RewriteRule ^beranda$ media.php?module=beranda [L]
+RewriteRule ^$ media.php?module=beranda [L]
+RewriteRule ^404\.html$ media.php?module=brokenlink&id=$1 [L]
+RewriteRule ^404\.shtml$ media.php?module=brokenlink&id=$1 [L]
+RewriteRule ^m-(.*)$ media.php?module=menu&id=$1 [L]
+RewriteRule ^sitemap$ media.php?module=sitemap [L]
+RewriteRule ^faq$ media.php?module=faq [L]
+RewriteRule ^pencarian$ media.php?module=cari [L]
+RewriteRule ^semua-agenda\.html$ media.php?module=semuaagenda&id=$1 [L]
+RewriteRule ^halagenda-(.*)\.html$ media.php?module=semuaagenda&halagenda=$1 [L]
+RewriteRule ^tag/([0-9]+)/(.*)\.html$ media.php?module=detailtag&id=$1 [L]
+RewriteRule ^haltag-([0-9]+)-(.*)\.html$ media.php?module=detailtag&id=$1&haltag=$2 [L]
+RewriteRule ^profil/([0-9]+)/(.*)$ media.php?module=profil&id=$1 [L]
+RewriteRule ^kirim-subscribe$ media.php?module=subscribe [L]
+
+#PENGUMUMAN
+RewriteRule ^pengumuman$ media.php?module=pengumuman&id=$1 [L]
+RewriteRule ^pengumuman/([0-9]+)/(.*)$ media.php?module=detailpengumuman&id=$1 [L]
+RewriteRule ^index-pengumuman-halaman-(.*)$ media.php?module=pengumuman&index-pengumuman-halaman=$1 [L]
+
+#HUBUNGI KAMI
+RewriteRule ^hubungi-kami$ media.php?module=hubungikami [L]
+RewriteRule ^hubungi-aksi$ media.php?module=hubungiaksi [L]
+
+#BUKUTAMU
+RewriteRule ^buku-tamu$ media.php?module=bukutamu&id=$1 [L]
+RewriteRule ^buku-aksi$ media.php?module=bukutamuaksi&id=$1 [L]
+RewriteRule ^buku-tamu-halaman-(.*)$ media.php?module=bukutamu&buku-tamu-halaman=$1 [L]
+
+#WEBLINK
+RewriteRule ^weblink$ media.php?module=weblink&id=$1 [L]
+RewriteRule ^weblink/([0-9]+)/(.*)$ media.php?module=detailweblink&id=$1 [L]
+
+#DOWNLOAD
+RewriteRule ^download$ media.php?module=download [L]
+RewriteRule ^download/([0-9]+)/(.*)$ media.php?module=detaildownload&id=$1 [L]
+
+#FOTO
+RewriteRule ^dokumentasi-album-foto$ media.php?module=semuaalbum&id=$1 [L]
+RewriteRule ^dokumentasi-album-foto-halaman-(.*)$ media.php?module=semuaalbum&dokumentasi-album-foto-halaman=$1 [L]
+RewriteRule ^album/([0-9]+)/(.*)$ media.php?module=detailalbum&id=$1 [L]
+RewriteRule ^halaman-galeri-([0-9]+)-([0-9]+)$ media.php?module=detailalbum&id=$1&halaman-galeri=$2 [L]
+
+#VIDEO
+RewriteRule ^dokumentasi-album-video$ media.php?module=semuaplaylist&id=$1 [L]
+RewriteRule ^dokumentasi-album-video-halaman-(.*)$ media.php?module=semuaplaylist&dokumentasi-album-video-halaman=$1 [L]
+RewriteRule ^play/([0-9]+)/([0-9]+)/(.*)$ media.php?module=play&id=$1&idv=$2 [L]
+RewriteRule ^playlist/([0-9]+)/(.*)$ media.php?module=detailplaylist&id=$1 [L]
+
+#BERITA
+RewriteRule ^index-berita$ media.php?module=semuaberita [L]
+RewriteRule ^index-berita-halaman-(.*)$ media.php?module=semuaberita&index-berita-halaman=$1 [L]
+RewriteRule ^berita/([0-9]+)/(.*)$ media.php?module=detailberita&id=$1 [L]
+
+#BLOG
+RewriteRule ^index-blog$ media.php?module=semuablog&id=$1 [L]
+RewriteRule ^index-blog-halaman-(.*)$ media.php?module=semuablog&index-blog-halaman=$1 [L]
+RewriteRule ^blog/([0-9]+)/(.*)$ media.php?module=detailblog&id=$1 [L]
+
+#KATEGORI
+RewriteRule ^rubrik-([0-9]+)-(.*)$ media.php?module=detailkategori&id=$1 [L]
+RewriteRule ^rubrik-halaman-([0-9]+)-([0-9]+)$ media.php?module=detailkategori&id=$1&rubrik-halaman=$2 [L]
+
+#POLLING
+RewriteRule ^poling$ media.php?module=poling&id=$1 [L]
+RewriteRule ^poling-(.*)-(.*)\.html$ media.php?module=datapoling&id=$1 [L]
+RewriteRule ^hasil-poling\.html$ media.php?module=hasilpoling&id=$1 [L]
+RewriteRule ^lihat-poling\.html$ media.php?module=lihatpoling&id=$1 [L]
+
+#REKOMENDASI
+RewriteRule ^rekomendasi$ media.php?module=rekomendasi [L]
+RewriteRule ^rekomendasi-kirim\.html$ media.php?module=rekomendasikirim [L]
+RewriteRule ^rekomendasi-thanks\.html$ media.php?module=rekomendasithanks [L]
+
+#TESTIMONI
+RewriteRule ^testimoni$ media.php?module=testimoni&id=$1 [L]
+RewriteRule ^testimoni-kirim$ media.php?module=testimonikirim&id=$1 [L]
+RewriteRule ^testimoni-sukses$ media.php?module=testimonisukses&id=$1 [L]
+RewriteRule ^testimoni-halaman-([0-9]+)$ media.php?module=testimoni&testimoni-halaman=$1 [L]
+
+#ADMIN USER
+RewriteRule ^akun$ media.php?module=akun&id=$1 [L]
+RewriteRule ^pb-([0-9]+)-(.*)$ media.php?module=detailakun&id=$1 [L]
+RewriteRule ^profil-user$ media.php?module=profiluser&id=$1 [L]
+RewriteRule ^aksi-profil$ media.php?module=aksiprofil&id=$1 [L]
+RewriteRule ^artikel-user$ media.php?module=artikeluser&id=$1 [L]
+RewriteRule ^artikel-baru$ media.php?module=artikelbaru&id=$1 [L]
+RewriteRule ^artikel-edit-([0-9]+)$ media.php?module=artikeledit&id=$1 [L]
+RewriteRule ^input-blog$ media.php?module=inputblog&id=$1 [L]
+RewriteRule ^update-blog$ media.php?module=updateblog&id=$1 [L]
+RewriteRule ^hapus-blog-([0-9]+)$ media.php?module=hapusblog&id=$1 [L]
+RewriteRule ^album-user$ media.php?module=albumuser&id=$1 [L]
+RewriteRule ^input-album$ media.php?module=inputalbum&id=$1 [L]
+RewriteRule ^update-album$ media.php?module=updatealbum&id=$1 [L]
+RewriteRule ^hapus-album-([0-9]+)$ media.php?module=hapusalbum&id=$1 [L]
+RewriteRule ^foto-user-([0-9]+)$ media.php?module=fotouser&id=$1 [L]
+RewriteRule ^input-foto$ media.php?module=inputfoto&id=$1 [L]
+RewriteRule ^update-foto$ media.php?module=updatefoto&id=$1 [L]
+RewriteRule ^hapus-foto-([0-9]+)$ media.php?module=hapusfoto&id=$1 [L]
+RewriteRule ^playlist-user$ media.php?module=playlistuser&id=$1 [L]
+RewriteRule ^pesan-user$ media.php?module=pesanuser&id=$1 [L]
+RewriteRule ^aksi-pesan$ media.php?module=aksipesan&id=$1 [L]
+RewriteRule ^input-playlist$ media.php?module=inputplaylist&id=$1 [L]
+RewriteRule ^update-playlist$ media.php?module=updateplaylist&id=$1 [L]
+RewriteRule ^hapus-playlist-([0-9]+)$ media.php?module=hapusplaylist&id=$1 [L]
+RewriteRule ^video-user-([0-9]+)$ media.php?module=videouser&id=$1 [L]
+RewriteRule ^input-video$ media.php?module=inputvideo&id=$1 [L]
+RewriteRule ^update-video$ media.php?module=updatevideo&id=$1 [L]
+RewriteRule ^hapus-video-([0-9]+)$ media.php?module=hapusvideo&id=$1 [L]
+RewriteRule ^login-proses$ media.php?module=ceklogin&id=$1 [L]
+RewriteRule ^logout$ media.php?module=logout&id=$1 [L]
+RewriteRule ^daftar$ media.php?module=daftar&id=$1 [L]
+RewriteRule ^daftar-proses$ media.php?module=daftarproses&id=$1 [L]
+RewriteRule ^lupa-password$ media.php?module=lupapassword&id=$1 [L]
+RewriteRule ^lupa-proses$ media.php?module=lupaproses&id=$1 [L]
+
+Options All -Indexes
+</IfModule>
